@@ -7,6 +7,8 @@ get '/' do
 end
 
 post '/' do
-  md = RDiscount.new(params[:data])
-  md.to_html
+  # TODO: パラメーターでホストや、サイズやクラスなどを指定できるようにする
+  markdown = RDiscount.new(params[:data])
+  html = markdown.to_html
+  Emoji.convert(html)
 end
