@@ -8,7 +8,7 @@ end
 
 post '/' do
   # TODO: パラメーターでホストや、サイズやクラスなどを指定できるようにする
-  markdown = RDiscount.new(params[:data])
-  html = markdown.to_html
+  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+  html = markdown.render(params[:data])
   Emoji.convert(html)
 end

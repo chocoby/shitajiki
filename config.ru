@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'rdiscount'
+require 'redcarpet'
 require './lib/emoji.rb'
 require './shitajiki.rb'
 

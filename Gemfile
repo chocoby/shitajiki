@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'haml'
-gem 'rdiscount'
+gem 'redcarpet'
 
 group :development do
   gem 'sinatra-contrib'
