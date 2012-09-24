@@ -7,8 +7,12 @@ get '/' do
 end
 
 post '/' do
-  # TODO: パラメーターでホストや、サイズやクラスなどを指定できるようにする
+  # 改行がエスケープされるので置換しておく
+  data = params[:data].gsub('\\n', "\n")
+
   markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-  html = markdown.render(params[:data])
+  html = markdown.render(data)
+
+  # TODO: パラメーターでホストや、サイズやクラスなどを指定できるようにする
   Emoji.convert(html)
 end
